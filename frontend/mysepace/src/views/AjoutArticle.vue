@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>Ajoutez votre poste</h1>
+    <div class="add">
+        <h1>Ajoutez votre poste</h1>
     <div>
         <div class="titre">
             <div class="titrediv">
@@ -21,5 +21,5 @@
         </div>
 
     </div>
-  </div>
+    </div>
 </template>
