@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">menu</router-link> |
-      <router-link to="/Home">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Menu</router-link> |
+      <router-link to="/Home">Creer un article</router-link> |
+      <router-link to="/about">Commenter</router-link>
     </div>
     <router-view/>
   </div>
@@ -11,23 +11,24 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Oxygen, italic;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: lightpink;
 }
 
 #nav {
   padding: 30px;
+  color: deeppink;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: lightpink;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: mediumpurple;
 }
 </style>
