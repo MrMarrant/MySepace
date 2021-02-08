@@ -1,0 +1,7 @@
+{
+  "domain": "dev-9feberuj.eu.auth0.com",
+  "clientId": "pmZEvw8mMyGDkFQ0qwEVzXlPVtoXBiKI",
+  "redirectUri": "",
+  "responseType": "token id_token",
+  "scope": "openid profile"
+}
