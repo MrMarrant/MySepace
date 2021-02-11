@@ -1,8 +1,8 @@
 # MySepace
 
 # Lancer le serveur API
-Module à installer pour faire fonctionner l'API :
-npm install express sequelize mysql2 body-parser cors --save
+Module à installer pour faire fonctionner l'API : <br>
+npm install express sequelize mysql2 body-parser cors --save <br><br>
 
 Utiliser Wamp :
 aller sur la console mysql ->
@@ -13,9 +13,9 @@ node server.js
 
 
 # Lancer l'Application
-npm i
-puis depuis le /root :
-cd frontend
-cd mysepace
-
+npm i <br>
+puis depuis le /root : <br>
+cd frontend <br>
+cd mysepace <br>
+<br>
 npm run serve
