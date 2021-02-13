@@ -31,6 +31,11 @@ const router = new VueRouter({
       path: "/article",
       name: "article",
       component: Article
+    },
+    {
+      path: "/Add",
+      name: "Add",
+      component: () => import(/* webpackChunkName: "about" */ '../views/Add.vue')
     }
   ]
 });

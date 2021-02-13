@@ -2,9 +2,9 @@ const db = require("../models");
 const Article = db.articles;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Article
+// creer un nouvel article dans la bdd
 exports.create = (req, res) => {
-// Validate request
+// Vérification
 if (!req.body.titre || !req.body.description) {
     res.status(400).send({
         message: "Le contenu ne peut être vide"
@@ -13,12 +13,10 @@ if (!req.body.titre || !req.body.description) {
 }
 
 
-  // Create 
 const article = {
     titre: req.body.titre,
     description: req.body.description
 };
-  // Save in the database
 Article.create(article)
     .then(data => {
         res.send(data);
@@ -31,7 +29,7 @@ Article.create(article)
     });
 };
 
-// Retrieve all Articles from the database.
+// affiche tout les articles
 exports.findAll = (req, res) => {
     const titre = req.query.titre;
     var condition = titre ? { titre: { [Op.like]: `%${titre}%` } } : null;
@@ -48,7 +46,7 @@ exports.findAll = (req, res) => {
       });
 };
 
-// Find a single Article with an id
+// Cherche un article en fonction d'un id
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
@@ -63,7 +61,7 @@ exports.findOne = (req, res) => {
       });
 };
 
-// Update a Article by the id in the request
+// Update un Article
 exports.update = (req, res) => {
 
     const id = req.params.id;
@@ -89,7 +87,7 @@ exports.update = (req, res) => {
       });
 };
 
-// Delete a Article with the specified id in the request
+// Delete un Article
 exports.delete = (req, res) => {
     const id = req.params.id;
 
@@ -114,7 +112,7 @@ exports.delete = (req, res) => {
       });
 };
 
-// Delete all Articles from the database.
+// Delete tout les articles
 exports.deleteAll = (req, res) => {
     Article.destroy({
         where: {},
@@ -131,7 +129,7 @@ exports.deleteAll = (req, res) => {
         });
 };
 
-// Find all published Articles
+// Affiche tout les articles publié
 exports.findAllPublished = (req, res) => {
     Article.findAll({ where: { published: true } })
     .then(data => {
