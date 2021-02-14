@@ -128,17 +128,3 @@ exports.deleteAll = (req, res) => {
           });
         });
 };
-
-// Affiche tout les articles publié
-exports.findAllPublished = (req, res) => {
-    Article.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Articles."
-      });
-    });
-};
