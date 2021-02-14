@@ -9,9 +9,6 @@ module.exports = app => {
     // Affiche tout les articles
     router.get("/", articles.findAll);
   
-    // Affiche tout les articles "publié"
-    router.get("/published", articles.findAllPublished);
-  
     // Affiche un Article en fonction de son id
     router.get("/:id", articles.findOne);
   
