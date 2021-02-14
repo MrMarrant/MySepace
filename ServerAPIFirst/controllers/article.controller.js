@@ -56,7 +56,7 @@ exports.findOne = (req, res) => {
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Article with id=" + id
+          message: "Erreur sur la recherche de l'article avec id=" + id
         });
       });
 };
@@ -72,17 +72,17 @@ exports.update = (req, res) => {
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Article was updated successfully."
+            message: "Article correctement update."
           });
         } else {
           res.send({
-            message: `Cannot update Article with id=${id}. Maybe Article was not found or req.body is empty!`
+            message: `Impossible d'update l'Article avec id=${id}. Article non trouvé ?`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Article with id=" + id
+          message: "Une erreur est survenue dans l'update de l'Article avec id=" + id
         });
       });
 };
@@ -97,17 +97,17 @@ exports.delete = (req, res) => {
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Article was deleted successfully!"
+            message: "L'Article a été correctement supprimé"
           });
         } else {
           res.send({
-            message: `Cannot delete Article with id=${id}. Maybe Article was not found!`
+            message: `Impossible de supprimer l'article avec id=${id}. Article non trouvé ?`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Article with id=" + id
+          message: "Impossible de supprimer l'Article avec id=" + id
         });
       });
 };
@@ -119,12 +119,12 @@ exports.deleteAll = (req, res) => {
         truncate: false
       })
         .then(nums => {
-          res.send({ message: `${nums} Articles were deleted successfully!` });
+          res.send({ message: `${nums} Tout les Articles ont été supprimé avec succès` });
         })
         .catch(err => {
           res.status(500).send({
             message:
-              err.message || "Some error occurred while removing all Articles."
+              err.message || "Des erreurs sont survenue en essayant de supprimer les articles"
           });
         });
 };
