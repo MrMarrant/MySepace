@@ -64,84 +64,27 @@ exports.findAllByIdArticle = (req, res) => {
       });
 };
 
-// // Update a Article by the id in the request
-// exports.update = (req, res) => {
+// Delete un commentaire
+exports.delete = (req, res) => {
+  const id = req.params.id;
 
-//     const id = req.params.id;
-
-//     Article.update(req.body, {
-//       where: { id: id }
-//     })
-//       .then(num => {
-//         if (num == 1) {
-//           res.send({
-//             message: "Article was updated successfully."
-//           });
-//         } else {
-//           res.send({
-//             message: `Cannot update Article with id=${id}. Maybe Article was not found or req.body is empty!`
-//           });
-//         }
-//       })
-//       .catch(err => {
-//         res.status(500).send({
-//           message: "Error updating Article with id=" + id
-//         });
-//       });
-// };
-
-// // Delete a Article with the specified id in the request
-// exports.delete = (req, res) => {
-//     const id = req.params.id;
-
-//     Article.destroy({
-//       where: { id: id }
-//     })
-//       .then(num => {
-//         if (num == 1) {
-//           res.send({
-//             message: "Article was deleted successfully!"
-//           });
-//         } else {
-//           res.send({
-//             message: `Cannot delete Article with id=${id}. Maybe Article was not found!`
-//           });
-//         }
-//       })
-//       .catch(err => {
-//         res.status(500).send({
-//           message: "Could not delete Article with id=" + id
-//         });
-//       });
-// };
-
-// // Delete all Articles from the database.
-// exports.deleteAll = (req, res) => {
-//     Article.destroy({
-//         where: {},
-//         truncate: false
-//       })
-//         .then(nums => {
-//           res.send({ message: `${nums} Articles were deleted successfully!` });
-//         })
-//         .catch(err => {
-//           res.status(500).send({
-//             message:
-//               err.message || "Some error occurred while removing all Articles."
-//           });
-//         });
-// };
-
-// // Find all published Articles
-// exports.findAllPublished = (req, res) => {
-//     Article.findAll({ where: { published: true } })
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving Articles."
-//       });
-//     });
-//  };
+  Commentaire.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Commentaire a été supprimé"
+        });
+      } else {
+        res.send({
+          message: `Impossible de supprimer le commentaire avec l'id=${id}.Commentaire non trouvé`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Impossible de supprimer le commentaire avec id=" + id
+      });
+    });
+};

@@ -10,6 +10,8 @@ module.exports = app => {
     router.get("/", commentaires.findAll);
 
     router.get("/:id", commentaires.findAllByIdArticle);
+
+    router.delete("/:id", commentaires.delete);
   
     app.use('/api/commentaires', router);
   };
