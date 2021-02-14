@@ -22,10 +22,6 @@
             </div>
           </div>
           <div class="absolute opacity-0 fd-sh group-hover:opacity-100">
-            <span
-                class="text-3xl font-bold text-black tracking-wider leading-relaxed font-sans">{{
-                article.titre
-              }}</span>
             <div class="pt-8 text-center">
               <router-link v-bind:to="'/article/' + article.id">
                 <button class="text-center rounded-lg p-4 bg-white  text-gray-700 font-bold text-lg">
