@@ -1,43 +1,31 @@
 <template>
   <div>
-    <article class="py-12 px-4">
-      <h1 class="text-4xl text-center mb-4 font-semibold font-heading font-semibold">
-        {{ article.titre }}
-      </h1>
-      <p class="text-center">
-        <span> {{ article.createdAt }} </span>
-      </p>
+    <!-- Article-->
+    <Article v-bind:article="article"></Article>
 
-      <div class="max-w-3xl mx-auto">
-        <p class="mb-10">
-          {{ article.description }}
-        </p>
-      </div>
-    </article>
-    <div v-for="comment in comments" :key="comment" class="py-4">
-  <div class="shadow-lg pt-4 ml-2 mr-2 rounded-lg">
-    <a href="#" class="block bg-white py-3 border-t pb-4">
-      <div class="px-4 py-2 flex  justify-between">
-        <span class="text-sm font-semibold text-gray-900">{{ comment.auteur }}</span>
-        <!-- <div class="flex">
-          <span class="px-4 text-sm font-semibold text-gray-600"> yesterday</span>
-          <img class="h-6 w-6 rounded-full object-cover"
-               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=144&amp;q=80"
-               alt="">
-        </div> -->
-      </div>
-      <p class="px-4 py-2 text-sm font-semibold text-gray-700">{{ comment.contenu }} </p>
-    </a>
-  </div>
-  </div>
-  <!-- <Comment></Comment> -->
+    <!-- FORMULAIRE COMMENTAIRE -->
+    <form class="form bg-white p-6 my-10 relative">
+      <div class="icon bg-blue-600 text-white w-6 h-6 absolute flex items-center justify-center p-5" style="left:-40px">
+        <i class="fal fa-phone-volume fa-fw text-2xl transform -rotate-45"></i></div>
+      <h3 class="text-2xl text-gray-900 font-semibold">Poster un commenter les fils de pute de tes morts</h3>
+      <input v-model="postComment.auteur" type="text" name="" placeholder="Auteur" class="border p-2  w-1/2">
+      <textarea v-model="postComment.contenu" name="" cols="10" rows="3" placeholder="Tell us about desired property"
+                class="border p-2 mt-3 w-full"></textarea>
+      <button type="submit" v-on:click="postCom"
+              class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-semibold p-3">
+        Poster un commentaire
+      </button>
+    </form>
+
+    <Comment v-bind:comments="comments"></Comment>
   </div>
 
-  
+
 </template>
 <script>
 
-// import Comment from "../components/Comment.vue";
+import Comment from "../components/Comment.vue";
+import Article from "../components/Article.vue";
 
 export default {
   name: "article",
@@ -45,11 +33,16 @@ export default {
     return {
       id: this.$route.params.id,
       article: {},
-      comments: {}
+      comments: {},
+      postComment: {
+        auteur: "",
+        contenu: ""
+      }
     }
   },
   components: {
-    // Comment,
+    Comment,
+    Article
   },
   created() {
     this.$http.get('http://localhost:1337/api/articles/' + this.id)
@@ -57,17 +50,25 @@ export default {
           console.log(response);
           this.article = response.data;
         });
-        this.comment();
+    this.comment();
   },
-methods: {
-  comment() {
-    this.$http.get('http://localhost:3000/api/commentaires/' + this.id)
-        .then(response => {
-          console.log(response);
-          this.comments = response.data;
-
-        });
+  methods: {
+    comment() {
+      this.$http.get('http://localhost:3000/api/commentaires/' + this.id)
+          .then(response => {
+            console.log(response);
+            this.comments = response.data;
+          });
+    },
+    postCom () {
+      this.$http.post('http://localhost:3000/api/commentaires/', {
+        auteur: this.postComment.auteur,
+        contenu: this.postComment.contenu,
+        iDArticle: this.id
+      }).then(function (data) {
+        console.log(data)
+      });
+    }
   }
-}
 }
 </script>

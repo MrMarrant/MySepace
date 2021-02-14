@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$auth.isAuthenticated">
     <div>
       <img :src="$auth.user.picture" />
       <h2>{{ $auth.user.name }}</h2>
