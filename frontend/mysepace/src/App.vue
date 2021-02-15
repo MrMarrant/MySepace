@@ -18,17 +18,20 @@
           </div>
         </div>
         <div class="md:flex flex-col md:flex-row md:-mx-4 hidden">
-          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">
+          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-5 md:my-0">
             <router-link to="/">Blog</router-link>
           </a>
-          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">
+          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-5 md:my-0">
             <router-link v-if="$auth.isAuthenticated"  to="/admin">Administration article</router-link>
           </a>
-          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">
+          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-5 md:my-0">
             <router-link v-if="$auth.isAuthenticated" to="/profile">Profile</router-link>
           </a>
+          <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-5 md:my-0">
+            <router-link v-if="$auth.isAuthenticated" to="/AddArticle">Ajouter un article</router-link>
+          </a>
           <a v-if="$auth.isAuthenticated" @click="logout" href="#">Deconnexion</a>
-          <a href="#" v-else @click="login" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Connexion</a>
+          <a href="#" v-else @click="login" class="my-1 text-gray-800 hover:text-blue-500 md:mx-5 md:my-0">Connexion</a>
         </div>
       </div>
     </nav>

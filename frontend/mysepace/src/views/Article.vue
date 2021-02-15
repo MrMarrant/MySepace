@@ -68,7 +68,15 @@ export default {
       }).then(function (data) {
         console.log(data)
       });
-    }
+    },
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin,
+      });
+    },
   }
 }
 </script>

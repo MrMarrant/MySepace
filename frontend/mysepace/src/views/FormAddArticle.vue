@@ -90,6 +90,14 @@ export default {
           router.push("/admin");
         });
     },
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin,
+      });
+    },
     close: function () {
       document.getElementById("id01").style.display = "none";
     },
