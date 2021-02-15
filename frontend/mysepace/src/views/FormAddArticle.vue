@@ -1,7 +1,7 @@
 <template>
   <div v-if="$auth.isAuthenticated" class="text-center">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <h1 class="text-5xl mb-6">George suce des queues</h1>
+    <h1 class="text-5xl mb-6">Ajout d'articles</h1>
     <div class="flex justify-center">
       <form class="w-9/12">
         <div class="flex flex-wrap -mx-3 mb-6">
