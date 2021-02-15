@@ -22,3 +22,10 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Test unit
+```
+npm i --legacy-peer-deps
+npm run test:unit
+```
