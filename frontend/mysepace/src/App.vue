@@ -22,7 +22,7 @@
             <router-link to="/">Blog</router-link>
           </a>
           <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">
-            <router-link to="/Add">Ajouter article</router-link>
+            <router-link v-if="$auth.isAuthenticated"  to="/admin">Administration article</router-link>
           </a>
           <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">
             <router-link v-if="$auth.isAuthenticated" to="/profile">Profile</router-link>
