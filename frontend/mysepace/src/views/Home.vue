@@ -1,8 +1,7 @@
 <template>
   <div class="home">
     <div class="text-center">
-      <h1>Bienvenue sur super blog de la mort qui tue espéce de gros fils pute va bien niquer ta mére.
-        Il est super chouette hein !!!!!
+      <h1>Bienvenue sur le blog MySepace
       </h1>
     </div>
     <br/>

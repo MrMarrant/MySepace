@@ -4,7 +4,7 @@
       <div class="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
         <div class="flex justify-between items-center">
           <div>
-            <a href="#" class="text-gray-800 text-xl font-bold md:text-2xl">Brand</a>
+            <a href="#" class="text-gray-800 text-xl font-bold md:text-2xl">MySepace</a>
           </div>
           <div>
             <button type="button"
