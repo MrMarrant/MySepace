@@ -36,18 +36,19 @@
                   </td>
                   <td class="p-3 px-5 flex justify-end">
                     <button
-                      type="submit"
-                      v-on:click="put(article)"
+
+                      v-on:click.stop.prevent="put(article)"
+                      @click="!disabled ? clickEvent() : false"
                       class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                     >
-                      edit
+                      Modifier
                     </button>
                     <button
-                      type="submit"
-                      v-on:click="deleteArticle(article)"
+                      v-on:click.stop.prevent="deleteArticle(article)"
+                      @click="!disabled ? clickEvent() : false"
                       class="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                     >
-                      Delete
+                      Supprimer
                     </button>
                   </td>
                 </tr>
@@ -62,6 +63,7 @@
 
 
 <script>
+import router from "@/router";
 export default {
   data() {
     return {
@@ -81,6 +83,9 @@ export default {
         })
         .then(function (data) {
           console.log(data);
+        })
+        .then(function () {
+          router.push("/admin");
         });
     },
     put: function (article) {
@@ -91,10 +96,16 @@ export default {
         })
         .then((data) => {
           console.log(data);
+        })
+        .then(function () {
+          router.push("/admin");
         });
     },
     deleteArticle: function (article) {
-      this.$http.delete("http://localhost:1337/api/articles/ " + article.id);
+      this.$http.delete("http://localhost:1337/api/articles/ " + article.id)
+      .then(function () {
+          router.push("/admin");
+        });
     },
     login() {
       this.$auth.loginWithRedirect();
